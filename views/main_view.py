@@ -1,4 +1,3 @@
-# views/main_view.py
 import flet as ft
 
 def main_view(go_results, go_settings):
