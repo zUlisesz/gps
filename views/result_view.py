@@ -1,4 +1,3 @@
-# views/result_view.py
 import flet as ft
 
 def result_view(go_back):
