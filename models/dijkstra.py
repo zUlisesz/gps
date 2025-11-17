@@ -10,7 +10,7 @@ class Dijkstra:
         distancias[start] = 0
         sucesores = {nodo: set() for nodo in grafo}
 
-        # PROCESO PRINCIPAL (igual que tu código)
+       
         while no_visitados:
             nodo_actual = min(no_visitados, key=lambda n: distancias[n])
 
@@ -29,7 +29,7 @@ class Dijkstra:
                 elif nueva_dist == distancias[vecino]:
                     sucesores[vecino].add(nodo_actual)
 
-        # FUNCIÓN RECURSIVA (igual que tu código)
+        
         def reunir_sucesores(nodo):
             if nodo == start:
                 return set()
@@ -39,7 +39,7 @@ class Dijkstra:
                 total.update(reunir_sucesores(s))
             return total
 
-        # TABLA DE RESULTADOS (igual que tu versión)
+       
         tabla = {}
         for nodo in grafo:
             if nodo == start:
@@ -52,22 +52,22 @@ class Dijkstra:
 
         return tabla
 
-    # Método adicional útil para tu app: obtener la distancia a un nodo
+    
     def distancia_hasta(self, start, end):
+        # solo obtiene la distancia a un nodo
         tabla = self.run(start)
         return tabla[end][0]
 
-    # Obtiene la ruta mínima reconstruyendo sucesores
     def ruta_minima(self, start, end):
         tabla = self.run(start)
 
-        # reconstrucción básica
         ruta = [end]
         actuales = tabla[end][1]
 
         while "ninguno" not in actuales:
-            primero = list(actuales)[0]  # tomar uno
+            primero = list(actuales)[0]  # seleccionar uno
             ruta.append(primero)
             actuales = tabla[primero][1]
 
         return list(reversed(ruta))
+
