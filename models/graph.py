@@ -1,6 +1,6 @@
 class Graph:
     def __init__(self):
-        self.nodes = {}   # { "A": [("B", peso), ("C", peso)] }
+        self.nodes = {}   #deben estar en este formato { "A": [("B", peso), ("C", peso)] }
 
     def add_node(self, node_id):
         if node_id not in self.nodes:
@@ -18,3 +18,4 @@ class Graph:
 
     def __repr__(self):
         return f"Graph({self.nodes})"
+
