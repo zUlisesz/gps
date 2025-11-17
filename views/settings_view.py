@@ -1,4 +1,3 @@
-# views/settings_view.py
 import flet as ft
 
 def settings_view(go_back):
