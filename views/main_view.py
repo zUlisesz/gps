@@ -31,14 +31,14 @@ def main_view(go_results, go_settings):
     boton_calcular = ft.FilledButton(
         text="Calcular ruta",
         icon=ft.Icons.DIRECTIONS,
-        width=200,
+        width=300,
         on_click=lambda _: go_results(None)
     )
 
     mapa = ft.Container(
         content=ft.Image(
             src="assets/img.jpeg",
-            width= 600,
+            height= 600 ,
             fit=ft.ImageFit.CONTAIN,
         ),
         expand=True,
@@ -53,22 +53,39 @@ def main_view(go_results, go_settings):
         on_click=lambda _: go_settings()
     )
 
-    return ft.Column(
-        expand=True,
-        alignment=ft.MainAxisAlignment.START,
+    left =ft.Column(
+        spacing= 20 ,
         controls=[
-            ft.Row(
-                alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
-                controls=[title, settings_button]
-            ),
-            mapa,
-            ft.Divider(),
             dropdown_origen,
             dropdown_destino,
             ft.Container(height=10),
-            ft.Row(
+            ft.Column(
                 alignment=ft.MainAxisAlignment.CENTER,
                 controls=[boton_calcular],
             )
         ]
+    )
+
+    return ft.Container(
+        padding= 30 ,
+        content= ft.Column(
+            expand=True,
+            alignment=ft.MainAxisAlignment.START,
+            
+            controls=[
+                ft.Row(
+                    alignment=ft.MainAxisAlignment.SPACE_BETWEEN,
+                    controls=[title, settings_button]
+                ),
+                ft.Container(
+                    ft.Row(
+                        controls = [
+                            left,
+                            ft.Divider(),
+                            mapa
+                        ]
+                    )
+                )
+            ]
+        )
     )
